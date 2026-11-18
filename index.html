@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Way of the Wills</title>
+<meta name="description" content="The Way of the Wills: what a will is, how wills make wills, and questions answered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;1,400&family=Alegreya+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* A manuscript on black: bone text, four scribe pigments used sparingly. */
+  --ink: #0d0c0b;
+  --bone: #e8e0cf;
+  --dim: #9a917f;
+  --red: #e0533d;     /* vermilion */
+  --green: #4fae8f;   /* verdigris */
+  --blue: #6f8fe0;    /* lapis */
+  --gold: #e2b44a;    /* orpiment */
+  --rule: #2a2622;
+  --serif: "Alegreya", Georgia, "Times New Roman", serif;
+  --caps: "Alegreya SC", "Alegreya", Georgia, serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ink); }
+body { color: var(--bone); font-family: var(--serif); font-size: 1.15rem; line-height: 1.62; }
+.page { max-width: calc(66ch + 40px); margin: 0 auto; padding: 56px 20px 72px; }
+
+header h1 { font-family: var(--caps); font-weight: 700; font-size: clamp(2rem, 6vw, 2.9rem); line-height: 1.1; margin: 0 0 22px; letter-spacing: 0.01em; }
+
+nav { display: flex; flex-wrap: wrap; gap: 4px 22px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
+nav a { font-family: var(--caps); font-size: 1.12rem; color: var(--c); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
+nav a:hover { border-bottom-color: var(--c); }
+nav a[aria-current="page"] { border-bottom-color: var(--c); }
+a:focus-visible { outline: 2px solid var(--c, var(--gold)); outline-offset: 3px; }
+
+.c-green { --c: var(--green); }
+.c-blue  { --c: var(--blue); }
+.c-red   { --c: var(--red); }
+.c-gold  { --c: var(--gold); }
+.c-bone  { --c: var(--bone); }
+
+.panel[hidden] { display: none; }
+.panel h2 { font-family: var(--caps); font-weight: 700; font-size: 1.7rem; color: var(--c); margin: 0 0 26px; }
+.panel h3 { font-family: var(--caps); font-weight: 500; font-size: 1.22rem; color: var(--c); margin: 0 0 6px; line-height: 1.3; text-wrap: balance; }
+.panel h4 { font-family: var(--caps); font-weight: 500; font-size: 1.1rem; margin: 26px 0 8px; }
+.panel p { margin: 0 0 14px; }
+.panel a { color: var(--c); text-underline-offset: 3px; }
+.entry { margin: 0 0 34px; }
+cite { font-style: italic; }
+
+.dropcap::first-letter { float: left; font-family: var(--caps); font-weight: 700; color: var(--red); font-size: 3.6em; line-height: 0.82; padding: 6px 8px 0 0; }
+
+.lede { color: var(--dim); font-style: italic; }
+.toc { margin: 0 0 44px; padding-left: 1.4em; }
+.toc li { margin: 0 0 4px; }
+.toc a { color: var(--bone); }
+.essay { padding-top: 30px; margin-top: 30px; border-top: 1px solid var(--rule); }
+.essay h3 { font-size: 1.35rem; }
+.posted { color: var(--dim); font-style: italic; font-size: 1rem; }
+.posted a { color: var(--dim); }
+.posted { margin-bottom: 4px; }
+.caveat { color: var(--red); font-style: italic; font-size: 1rem; margin-bottom: 20px; }
+
+footer { margin-top: 64px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--dim); font-family: var(--caps); font-size: 0.95rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 1.08rem; }
+  .page { padding-top: 36px; }
+  nav { gap: 4px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<h1>The Way of the Wills</h1>
+<nav aria-label="Sections">
+<a href="#the-way" class="c-green" data-tab="the-way">The Way</a>
+<a href="#how-it-works" class="c-blue" data-tab="how-it-works">How It Works</a>
+<a href="#questions" class="c-red" data-tab="questions">Questions</a>
+<a href="#reading" class="c-gold" data-tab="reading">Reading</a>
+<a href="#writings" class="c-bone" data-tab="writings">Writings</a>
+</nav>
+</header>
+<main>
+<div class="panel c-green" id="panel-the-way" role="region" aria-label="The Way">
+<h2>The Way</h2>
+<section class="entry" id="what-is-the-way-of-the-wills-in-a-sentence-or-two">
+<h3>What is the Way of the Wills, in a sentence or two?</h3>
+<p class="dropcap">The Way(s) of the Will(s) is the idea that some objects have wills, recursive loops that modify their own functions to maintain themselves, and that those wills affect their environment in much the same way desire paths wear trails, or rain carves rivers.</p>
+</section>
+<section class="entry" id="what-counts-as-a-will-and-what-doesn-t">
+<h3>What counts as a will, and what doesn't?</h3>
+<p>Anything that modifies its own functions to maintain itself has a will. The process is time bound. A will cannot exist without time.</p>
+</section>
+<section class="entry" id="why-does-a-flame-have-a-will-when-a-magnet-doesn-t">
+<h3>Why does a flame have a will when a magnet doesn't?</h3>
+<p>A magnet is a flag blowing in the wind. It doesn't self-reinforce, it changes direction based on the Earth's wills, not its own. A magnet will decay if left alone, a flame will grow, change and only die when it cannot find the fuel or environment to maintain itself.</p>
+</section>
+<section class="entry" id="how-is-a-will-different-from-awareness">
+<h3>How is a will different from awareness?</h3>
+<p>Awareness is when wills construct in a way that builds a self referencing model. A will can exist without awareness because a will is merely the force that maintains itself, it doesn't need a self referencing model to do that.</p>
+</section>
+<section class="entry" id="where-did-the-idea-come-from-for-you">
+<h3>Where did the idea come from for you?</h3>
+<p>I was looking into awareness, and found the issue of collective intelligence interesting to work out, and then I was looking into various post-Christian organizations and theologies, and I realized no one had created exactly the toolbox I wanted, and the closest failed to explain why things happened and what I should do about them. A lot of them have no backbone, or the backbone they have is rooted in dogma and falsehoods.</p>
+<p>So I made my own toolbox based on science.</p>
+</section>
+<section class="entry" id="why-is-the-slime-mold-the-symbol">
+<h3>Why is the slime mold the symbol?</h3>
+<p>The slime mold is a great example of awareness and wills combining and dividing, and to be fair, we think slime molds are irl flubber, and who doesn't like flubber?</p>
+</section>
+<section class="entry" id="is-it-the-will-of-the-way-or-the-way-of-the-wills">
+<h3>Is it the will of the way, or the way of the wills?</h3>
+<p>Both. I say both. They both mean different things, but ultimately it doesn't matter, but the way of the wills is generally the idea, and the will of the way describes the concept as the desire path effect.</p>
+</section>
+</div>
+<div class="panel c-blue" id="panel-how-it-works" role="region" aria-label="How It Works">
+<h2>How It Works</h2>
+<section class="entry" id="how-do-small-wills-add-up-to-bigger-ones">
+<h3>How do small wills add up to bigger ones?</h3>
+<p>Much in the same way that functions/algorithms combine and conflict to create the maintained loop of lesser wills, lesser wills combine and conflict to create regular wills. Likewise, wills can combine and clash to create the loose collectives that are greater wills. Depending on how you classify us as either regular wills or greater wills, there are greater wills that we are apart of. Groups of humans form collectives in many different ways, like a flock of birds or sheep, we form metaphysical collectives based on conscious and unconscious beliefs and actions.</p>
+<p>These greater and lesser wills are often attributed to spirits or gods or God in the past, but all of these things, from the air you breathe, to morality itself are effects of the way of the wills, effects of these collectives of wills.</p>
+</section>
+<section class="entry" id="can-one-will-be-part-of-several-bigger-wills-at-once">
+<h3>Can one will be part of several bigger wills at once?</h3>
+<p>Yes. You are part of countless wills and made of countless wills that combined to make you. Cancer is what happens when the will of a cell becomes misaligned with the rest of your cells. Michael Levin calls it a cell with a smaller self.</p>
+</section>
+<section class="entry" id="what-decides-whether-a-will-becomes-aware">
+<h3>What decides whether a will becomes aware?</h3>
+<p>If the wills function as a model of itself and make decisions based on that model.</p>
+</section>
+<section class="entry" id="why-do-speed-and-size-matter">
+<h3>Why do speed and size matter?</h3>
+<p>Because the difference between a whole and a group is the speed at which that group communicates. If signals cross the whole faster than any one of its parts makes decisions, it can be treated as a single will. If the communication is slow enough that every part makes decisions apart from the whole, then we can treat it as a collective.</p>
+</section>
+<section class="entry" id="why-is-a-person-aware-when-a-country-isn-t">
+<h3>Why is a person aware when a country isn't?</h3>
+<p>The country is too spread apart and communicates too slowly to be aware more than a forest is.</p>
+</section>
+<section class="entry" id="how-do-wills-talk-to-each-other-through-the-world-around-the">
+<h3>How do wills talk to each other through the world around them?</h3>
+<p>Through direct communication and indirectly based on the changes they make to their environment and other wills.</p>
+</section>
+<section class="entry" id="what-s-the-difference-between-a-fire-spreading-and-a-slime-m">
+<h3>What's the difference between a fire spreading and a slime mold searching?</h3>
+<p>One is unable to create a self referencing model, the other can. The slime mold leaves a trail of slime and uses it to remember where it's been.</p>
+</section>
+<section class="entry" id="which-parts-are-proven-science-and-which-parts-are-your-own">
+<h3>Which parts are proven science, and which parts are your own?</h3>
+<p>Most assumptions are made based on best evidence. Science shows that slime molds and swarms make choices none of their parts make, that flames and living things keep themselves going, and that cancer is cells breaking off from the body. Calling those loops wills is my part, and so is the idea that communication speed decides what counts as a whole.</p>
+</section>
+</div>
+<div class="panel c-red" id="panel-questions" role="region" aria-label="Questions">
+<h2>Questions</h2>
+<section class="entry" id="what-happens-when-we-die">
+<h3>What happens when we die?</h3>
+<p>The lights are turned off on the house that is you. The house can still have its lights restored, but if not, it will quickly degrade. We should seek to restore the lights, preserve the house if able, or follow the directions of the house in question for destruction, i.e. burial, cremation.</p>
+<p>The way of the wills believes that cryostasis or preservation should be accessible to all people and pets, and that we should work towards a future where people live as long as possible.</p>
+</section>
+<section class="entry" id="is-there-a-heaven-or-hell">
+<h3>Is there a heaven or hell?</h3>
+<p>No. There is only the present.</p>
+</section>
+<section class="entry" id="is-reincarnation-real">
+<h3>Is reincarnation real?</h3>
+<p>No. It would require violations in the laws of nature and physics.</p>
+</section>
+<section class="entry" id="is-there-a-god">
+<h3>Is there a God?</h3>
+<p>No, in the sense that most believe, there is no single, consciousness creator that made everything, nor is it appropriate to refer to the universe itself as God, or the force(s) that may have had a hand in making it a God. Some people call the force that prompted the universe God, we call that the Ground.</p>
+<p>Wills cannot exist in timeless places. Wills also cannot exist when separated by too much time and space. Unfortunately this places upper and lower bounds on wills and consciousness both in space and in time.</p>
+</section>
+<section class="entry" id="what-is-the-meaning-of-life">
+<h3>What is the meaning of life?</h3>
+<p>To live. To find the way(s) and walk them so that those who come after may have easier ways to walk.</p>
+</section>
+<section class="entry" id="why-do-people-suffer">
+<h3>Why do people suffer?</h3>
+<p>It is the will of the ways. There are countless wills that have existed before you, and exist beside you, some blind; all trying to survive.</p>
+<p>Suffering is a result of the natural misalignment of wills, and wills failing to maintain themselves in their environment. The first is an issue that can be solved, the second has a few issues that cannot be completely resolved due to physical restraints of reality itself.</p>
+<p>Because of death, and everything dies, even the universe.</p>
+</section>
+<section class="entry" id="do-we-have-free-will">
+<h3>Do we have free will?</h3>
+<p>To a degree. We have choices of the way(s) we walk. These ways are often well-trodden, some are not. Pathfinding is real, but free will does not mean you can pathfind anywhere. You are bound by your environment.</p>
+</section>
+<section class="entry" id="is-magic-real">
+<h3>Is magic real?</h3>
+<p>Yes, most "magic" has real effects on the mind of us or other wills.</p>
+</section>
+<section class="entry" id="what-are-rituals-for">
+<h3>What are rituals for?</h3>
+<p>Us. Funerals are there to help the living cope with death. All rituals serve some purpose, whether that be dealing with guilt, remorse, hope, grief. Rituals give us the opportunity to ground these things in ways we can deal with them in physical reality.</p>
+<p>Not all rituals are equal. We should seek and use the best tools for the job.</p>
+</section>
+<section class="entry" id="are-groups-of-people-aware">
+<h3>Are groups of people aware?</h3>
+<p>In the same way as a forest or a flock of birds.</p>
+</section>
+<section class="entry" id="do-animals-and-plants-have-wills">
+<h3>Do animals and plants have wills?</h3>
+<p>Yes, some like us, others not so much.</p>
+</section>
+<section class="entry" id="can-ai-be-a-will-can-it-be-aware">
+<h3>Can AI be a will? Can it be aware?</h3>
+<p>Current AI is a flag blowing in the wind. It runs on our wills, not its own. We don't think it is aware yet, but it can be made to have a will and be aware. It is the position of the way of the wills that we are not to create conscious constructs until we have methods to tell if something is aware and a pathway to citizenship, as creating an aware AI should be treated with the same gravity as making a child.</p>
+</section>
+<section class="entry" id="what-makes-something-right-or-wrong">
+<h3>What makes something right or wrong?</h3>
+<p>Morality is many greater wills, and moral relativity can be a useful lens to view modern attempts at solving morality. Almost all social animals have moral systems to moderate the ways of the wills of that social system. Wills often compete and clash, but when wills become antagonistic, destructive, manipulative, or misaligned that is when we generally recognize something as wrong or evil.</p>
+<p>We must be extremely careful not to be forceful or judgemental against those who do things we view as wrong or evil. That is the ways of the wills. You cannot be angry at rain when it runs to the river, in the same way you cannot be angry at a police officer for carrying out the law. While many officers give grace, as that is the way of the wills, many will follow the law they have been taught, as enforcing laws is their job. We should instead fight immoral laws in the courts, in the legislature, or at the ballot box. We should effect change with nonviolence, with kindness and grace. You get more bees with honey than vinegar, all you get are flies and wasps.</p>
+</section>
+<section class="entry" id="what-does-the-way-of-the-wills-think-about-abortion">
+<h3>What does the Way of the Wills think about abortion?</h3>
+<p>We believe that laws and lawyers should stay out of the delivery room and doctor's office. If you want fewer abortions, the way is not by hanging nooses around the necks of mothers.</p>
+</section>
+<section class="entry" id="what-about-violence-and-war">
+<h3>What about violence and war?</h3>
+<p>Horrific, and all wills should unite in refusal to commit violence outside of immediate self-defense, and should refuse to support anyone who uses violence as a means to any end.</p>
+</section>
+<section class="entry" id="what-about-marriage-and-lgbtq-people">
+<h3>What about marriage and LGBTQ people?</h3>
+<p>The way of the wills believes that all marriages should be recognized, including polygamy, polyandry, and polyamory, and that children generally benefit from having a larger support network. Family and community are nessissary for all humans to thrive.</p>
+<p>While we recognize that some of these systems are misogynistic, we think that marriage, and families are an important part of protecting womens' rights in a relationship and family.</p>
+</section>
+<section class="entry" id="how-should-someone-live-if-this-is-true">
+<h3>How should someone live if this is true?</h3>
+<p>They should seek to find the way their will can make the most positive effect on the ways they wish were. If you want something to exist, YOU have to build it.</p>
+</section>
+<section class="entry" id="is-this-a-religion">
+<h3>Is this a religion?</h3>
+<p>It depends on how you define religion. I would say yes, some would say no.</p>
+</section>
+<section class="entry" id="is-this-a-cult">
+<h3>Is this a cult?</h3>
+<p>No.</p>
+</section>
+<section class="entry" id="do-i-have-to-believe-all-of-it">
+<h3>Do I have to believe all of it?</h3>
+<p>No. There are many parts, you can pick and choose the parts you like.</p>
+</section>
+<section class="entry" id="is-there-a-sacred-book">
+<h3>Is there a sacred book?</h3>
+<p>No.</p>
+</section>
+<section class="entry" id="what-does-the-way-think-about-science">
+<h3>What does the Way think about science?</h3>
+<p>The way of the wills is built on current science, and is subject to change based on future scientific discoveries. There is currently an issue with repeatability in science. We believe science will resolve this repeatability issue eventually, at such time we hope science will change into something called a scientium, becoming a way to measure the truth of any statement about our universe.</p>
+</section>
+<section class="entry" id="how-does-this-fit-with-other-religions-can-i-follow-one-too">
+<h3>How does this fit with other religions? Can I follow one too?</h3>
+<p>As long as you reject dogma and recognize the ways of the wills, you can follow the way of the wills alongside any other religion.</p>
+</section>
+<section class="entry" id="can-atheists-follow-the-way">
+<h3>Can atheists follow the Way?</h3>
+<p>Yes. It is specifically designed for atheist and agnostic worldviews. The will of the way is the closest thing to a Religion for Atheists, as it demystifies most of the "supernatural" as natural.</p>
+</section>
+<section class="entry" id="do-you-worship-slime-molds">
+<h3>Do you worship slime molds?</h3>
+<p>Nah, but they are cool!</p>
+</section>
+<section class="entry" id="will-i-be-welcome">
+<h3>Will I be welcome?</h3>
+<p>Yes. The way of the wills welcomes everyone to walk with us. Even if it's just to take the tools and run.</p>
+</section>
+<section class="entry" id="what-happens-at-a-gathering">
+<h3>What happens at a gathering?</h3>
+<p>Talking.</p>
+</section>
+<section class="entry" id="who-s-in-charge-and-how-are-decisions-made">
+<h3>Who's in charge, and how are decisions made?</h3>
+<p>Me. I make the decisions based on what I think is best.</p>
+</section>
+<section class="entry" id="do-you-do-weddings-or-funerals">
+<h3>Do you do weddings or funerals?</h3>
+<p>Not yet. Maybe one day.</p>
+</section>
+<section class="entry" id="do-i-have-to-give-money">
+<h3>Do I have to give money?</h3>
+<p>No.</p>
+</section>
+<section class="entry" id="how-did-this-start-and-who-started-it">
+<h3>How did this start, and who started it?</h3>
+<p>I wanted a way to marry the experiences of religion, modern and ancient, and reality as described by science. I found a way, and I wanted to share it so that others could find it.</p>
+</section>
+<section class="entry" id="how-many-people-follow-the-way">
+<h3>How many people follow the Way?</h3>
+<p>Me, myself and I.</p>
+</section>
+</div>
+<div class="panel c-gold" id="panel-reading" role="region" aria-label="Reading">
+<h2>Reading</h2>
+<section class="entry" id="which-books-papers-or-people-are-on-the-right-track">
+<h3>Which books, papers or people are on the right track?</h3>
+<p>Penrose's books on cyclic cosmology, like <cite>Cycles of Time</cite></p>
+<p>Any of Stephen Hawking's books</p>
+<p>Any Discworld novel</p>
+<p>My works:</p>
+<p>A Sea of Light</p>
+<p><a href="https://medium.com/@noellebytes">Essays on Medium</a></p>
+<p>Tbr: The Way of The Wills</p>
+</section>
+</div>
+<div class="panel c-bone" id="panel-writings" role="region" aria-label="Writings">
+<h2>Writings</h2>
+<p class="lede">Early essays, first posted on Medium.</p>
+<ol class="toc">
+<li><a href="#writings" data-jump="essay-a-measurable-scientific-god">A Measurable Scientific God</a></li>
+<li><a href="#writings" data-jump="essay-religious-historians-were-wrong-animism-isn-t-a-">Religious Historians were Wrong. Animism isn’t a Protoreligion</a></li>
+<li><a href="#writings" data-jump="essay-all-languages-are-constructed">All Languages are Constructed</a></li>
+<li><a href="#writings" data-jump="essay-is-remote-viewing-just-the-human-version-of-gena">Is Remote Viewing Just the Human Version of Genai?</a></li>
+<li><a href="#writings" data-jump="essay-salutes-are-rituals">Salutes are Rituals</a></li>
+<li><a href="#writings" data-jump="essay-magic-is-real">Magic is real.</a></li>
+</ol>
+<article class="essay" id="essay-a-measurable-scientific-god">
+<h3>A Measurable Scientific God</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/a-measurable-scientific-god-b126cd8cdc0f">Medium</a>, April 12, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>Some Christians are Claiming Jesus is Dead.</p>
+<p>And the collective we are God.</p>
+<p>Unfortunately for them this construction of God is incomplete.</p>
+<p>If you want to go full DND and say that the wills of people combine to form some greater entity and THAT’S what Jesus meant by God, well you can’t just include the wills of humans.</p>
+<p>You have to include the wants of everything.</p>
+<p>Everything that can, will.</p>
+<p>In such a way you could construct some conscious thing built as a function of the wills of all living things.</p>
+<p>Of course the panpsychic would say why stop there? You could say the universe wants to, shall we extend the reach of this greatness to all of reality?</p>
+<p>No, that’s silly. Space doesn’t want, as much as a rock does. What does a rock want? A good stream to wittle away in? A big mountain to fall off of? Come on….</p>
+<p>However, rolling back to the limited God of all living will, that is a harder thing to dismiss.</p>
+<p>Let’s take swarms and evolution, both seemingly intelligent despite possessing no mind. I don’t think it’s that hard to blame people for believing in intelligence design. The way evolution has funneled life into its niches is amazing and to the uneducated or otherwise motivated, rather organized. Like it was designed by someone for that environment. Of course we know this is the other way round, the environment shapes the organism as part of the pressures of evolution. These types of meta-funtions a result of their component parts, meaning, if the smallest part is already conscious, the Great thing as a whole will seem to have a shadow of those things’ thoughts and actions.</p>
+<p>Some may turn to panpsychism, but again I would reject it. I’ve been down this road. The environment does not have a will beyond life, it being shaped by life and cycles of time, and the greater community of all living things does not act in any deliberate manor outside of its greed for its own persistence, which most everything that lives shares; so those wants sum over time.</p>
+<p>So the greatness it creates is a blind, apathetic, dissoiated, wild thing that is ruled by chance and it’s environment. Not a God you can pray too, but one that wants, one that steers, one that binds us all together, and rules us.</p>
+<p>We are under some illusion that we have ascended from it, but we have not. We cannot remove ourselves from the whole because we are a part of it. We are not wantless automata.</p>
+<p>let’s call the combination of all human wills the Greater Human. The same can be done for all other organisms. When we combine all the Greater wants together we get the Greater Great.</p>
+<p>But this Greatness is a wild thing of great terribleness. It is a unconscious monster writhing blinding searching for the same thing: to survive. Whatever it takes. Murder, Rape, Theif and Malice are but tools of a desperate thing trying to escape the jaws of death.</p>
+<p>We would be erroneous to believe we can be above something we cannot control and cannot be separated from.</p>
+<p>Some may put their faith in these Great things, But that would be as foolish as pleading the wind to stop howling, or the Earth to stop turning. For most of them do not know our language, and theirs just as alien to us.</p>
+<p>There will always be something beyond our reach; we may never reach the end of anything. Never can you live perfectly in an imperfect world. Never to have full control over our own Greatness. So perhaspe the only thing to do is accept our place in it, and as humanity slowly acesends from the greater whole that birthed us, we must take it apon ourselves to help each other, free those stuck in the cycle of death’s struggle, and to protect those who cannot protect themselves in the here, in the now. Let your faith be acts of undeserving love and kindness toward those who are hated and have committed grave crimes against you, lest you be the one who breaks the shackles of death from them.</p>
+<p>For all life is sacred. You, me, the mosquito, the tree. For value is a viel of shadow that shield us from the guilt which we have inherited, to shade us from the depth of this despair we bear, and to blanket us in the soft thoughts of complacenty, that we may one day wake up from this terrible nightmare and have the strength to guide all life towards some future where the Greatest of Greats may dream of warmth, prosperity, and peace for all.</p>
+<p>No this isn’t a new religion and I’m not crazy. This is just a silly little post written by a silly women. Remember the shadows in Plato’s cave? What are shadows, anyways?</p>
+<p>Dark skies and clear nights friends!</p>
+<p>This post was written by me without the use of AI, clearly cause this shitz is too CrAZy. Deal with the bad grammer and spelling. It bothers me too, but if I keep editing, I’ll overwrite and this will stay a draft forever.</p>
+<p>This is just for fun. Please don’t take this super seriously, you know who you are.</p>
+</article>
+<article class="essay" id="essay-religious-historians-were-wrong-animism-isn-t-a-">
+<h3>Religious Historians were Wrong. Animism isn’t a Protoreligion</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/religious-historians-were-wrong-animism-isnt-a-protoreligion-fca176d7c3e2">Medium</a>, July 6, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>Mordern religions are less in touch with reality than their ancient counterparts.</p>
+<p>In a bizzare twist of fate, I have found that our ancient ancestors were not practicing simple, outrageous, and blanently naive about the workings of reality.</p>
+<p>But that couldn’t be farther from the truth. They may not have known it, but they were so based it may end up being the thing we all return to. thinking there are forces hidden in these things, or that things are controlled by hidden forces unknownable to us.</p>
+<p>You may think this silly, but we’ve already accept these ideas into our society without seemly ever really thinking about it. Its benign, so obvious whenever I reveal it you’ll stop and think, why the fuck did I never think of that?</p>
+<p>Society is not a person, it is not a god or part of God, but it does exist. It seems to have wills. It moves in much the same way a tree does. Unconscious, driven by the many wills that live inside of it. no one controls all, but all control the one (along with the ancestors they carry with them). Of course, the many are effected by others and their environment….</p>
+<p>And thus, through simple things like ecosystems and nature, we’ve demystifyed the forces that will the world to spin, the rain to fall, and the heart to beat. These things, you, are not one thing, but a function of many smaller things, many smaller wills that have become a greater one.</p>
+<p>How far down does the wants go? How far up? I find there is a middle where the wills become a want, but venture too far onr way or the other and you lose focus of the wills. They don’t align or combine.</p>
+<p>I’m still not 100% on this, but holy shit is this compelling. It just explains so much. So much. This shared experience we can label as both real and natural and I’m a fan of that.</p>
+<p>maybe I should write a book try to get this concept across better, although I’m aware disk world has a similar theology, I’d call it The Way of the Wills or something stupid like that lmao.</p>
+</article>
+<article class="essay" id="essay-all-languages-are-constructed">
+<h3>All Languages are Constructed</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/all-languages-are-constructed-0afba38ccba6">Medium</a>, July 9, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>Even the ones evolution created.</p>
+<p>this is a cool bit I came across recently. I was thinking about how the philosophy behind the means of names and ideas, whose name I can’t spell and voice to text butchered so I’m rolling with this, and I had the thought , “Well technically all languages have to be created. Its a chicken and the egg who came first situation. Not whose on first mind you(sorry not sorry).</p>
+<p>perhaspe this is a flawed reasoning, but it makes sense to me, how would you talk before you had no tounge in which to speak, a person to speak with, and place to speak in. I suppose there may be other requirements, but the point stands that communication as a want could not occure before there were such things that could communicate… right?</p>
+<p>I suppose maybe we could take the philosophy route down this rabbit hole even further by asking what a language is, or rather what does it mean to communicate information at all. it seems a bit contrived, but I see some skeptic, namely because I see myself asking how this applies to the smallest scales of our universe quantum mechanics, but I’m afraid this may be a mistake of mixing domains were it is simply not realistic in any application. That said, I think we can say that communication needs to be meta in some way, or rather that you need a second and third order observation into order to have some change of logic in the translation of some meaning, I would suppose.</p>
+<p>Regardless, if you’ve read past of of that thank you, but really what I want to point out, is that every time I hear that only humans do x, I laugh because I’m honestly not sure if there’s anything that is particularly unique to us outside of our progression in external technology. Some same its love, but I think thats hogwash. language is everywhere. It’s not in our DNA, DNA is literally a language. Ants talk with chem trails, and birds tweet as much as some of you do. And some may think that is a stretch, but it really isn’t.</p>
+<p>communication as an idea is something older than us. language is younger, but still ancient, in a weird, “do not qoute the dark magic to me witch, I was there when it was written.” way.</p>
+<p>maybe it is a keep to awareness. the ability to understand and use language. Maybe that’s what our brains really are, just extremely good language machines.</p>
+<p>One day the so we use today will be the cells of a greater machine. Run a few billion Claude 5 on a shared instance. let them cook up a communication layer and delicate tasks. that’s it.</p>
+<p>whelp. fuck.</p>
+<p>nobody fucking read this. it’s fine … right …</p>
+</article>
+<article class="essay" id="essay-is-remote-viewing-just-the-human-version-of-gena">
+<h3>Is Remote Viewing Just the Human Version of Genai?</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/is-remote-viewing-just-the-human-version-of-genai-089b00e896d1">Medium</a>, July 15, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>Are psychic abilities just controlled hallucinations?</p>
+<p>strap in y’all, we’re getting spicy.</p>
+<p>written by a human. idk y.</p>
+<p>this isn’t a new idea, but it is interesting. the issue of course, is that just because we can do something doesn’t mean it’s right. Not right in the moral way but right in the correct way. I doubt we could see any more than a machine, and if we could do that the machine would be able to do it too and better. I’m pretty sure AI when it does it’s hallucinations doesn’t really know what reality looks like. It’s a guess that’s usually wong.</p>
+<p>And we would have a massive disadvantage. So even if we could do such a thing, it wouldn’t be consistent. you wouldn’t be able to train for it. It would stay random.</p>
+<p>it’s a bit disappointing really, but it doesn’t change how it sometimes, kinda works. at least depending on how it’s graded, which is never a good sign.</p>
+<p>Maybe it is all in our mind, but that doesn’t mean it’s not useful.</p>
+<p>I do like the idea of using beliefs as tools. maybe I can force myself to take care of myself or meet my goals if I had religious convection……</p>
+<p>🤣🤣🤣🤣🤣</p>
+<p>had a long string of clear nights. I’m so overloaded with data management. I haven’t even touched stacking yet. I have hundreds of hours on some targets now. crazy.</p>
+<p>clear nights ahead, I’m sure if it.</p>
+<p>ps. that means it’s all downhill from here lol.</p>
+</article>
+<article class="essay" id="essay-salutes-are-rituals">
+<h3>Salutes are Rituals</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/salutes-are-rituals-0d4717efeacf">Medium</a>, July 19, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>you may think them only greetings, but how would you translate o7</p>
+<p>a human wrote this. go tell your mom. yes the spelling mistakes are not intentional, I just hate you that much.</p>
+<p>listen, I’ve been thinking a lot of psychology lately. I was a psychology major in college but I graduated with a general arts degree because it was faster and I had a 69 in a class I needed a 70 or better. I often thought about the model of the mind as directly related to the brain. Like muscles that make up a body, different neurol clumps handle different processes entirely, like sub-agents that feed subconsciously into the conscious mind. I’m not one thing, I’m a bunch of little things that act like one big thing.</p>
+<p>what’s weird about all of this, is that I, the big thing, am actively aware and can choose to modify myself mentally or physically without realizing what the fuck I’m doing. Its like we image we all pilot a giant robot, but the truth is that we are literally a squishy body of nerves connected to our puppet in the most horrific of ways.</p>
+<p>And the wildest part, is that all of this can be done actively, or passively, or by someone or something else who know it, like magic. It’s like magic. Magic, a word I will quickly research the etamology of so I don’t look dumb. jk, I earned that 69. Magic is just Ritual, and what is Ritual? well according to an anthropologist, whatever the fuck we can’t explain. According to me, it’s an act you repeat for a number of reasons, but mainly belief or social pressure. washing your hands, ritual (yes, even if washing your hands “works” the mechanic is the same) it works on placebo. I washed my hands therefore they are clean. But did you really clean your hands enough to call them clean? I suppose it depends, but I know I want my surgens scrubbing in.</p>
+<p>and I want you to really stop and think for a moment. How normal some of these things are now, but there was a day where people had to make a choice to believe in germs, despite never seeing one. they had to wash their hands, and do it ritually, depending the severity of the risk of illness. nothing about reality changed, other than our knowledge, our beliefs, our rituals based on those new beliefs. Beliefs taken on evidence, but still belief.</p>
+<p>The belief holds the power. power to change reality outside and inside. As I learned about psychology, I realized we were far, far from whatever the truth of the human mind entails. Now, I think we are less far away, but it is still impossible to tell. Ai has played a critical role in closing the gap of decoding information in our brain, and the study of psychology and neurology have come a long way.</p>
+<p>But what I didn’t expect to find was something when I looked back. This things always existed in modern society of course, they just get called different things: positive affirmations, spells, some prayers and incantations. We know positive affirmations work, and we know these types of positive thought patterns have existed in religions across the world. Even when they had now idea what the brain was, they had discovered how to sooth the mind. Through magic. Through Ritual. Actions we do repeatedly because of some belief we hold.</p>
+<p>America’s 250th came and went this July, and I can’t help but wonder what the fuck our salute means anymore. I used to think it was a relic of WWII, but now, what is a salute but an prayer to facisim.</p>
+<p>Maybe psychology could learn a thing or two from the religious and occult about the nature of the mind. I sure as hell have, but I’m really not sure if I should talk about them any further.</p>
+<p>ps. working on observatory automation. mostly done now with data management, but I’m going to need an extension to my nas and I’m dreading that, both in cost and in hassel. I may belay it by buying external HDDs for archiving old or cloudy nights. can’t wait to expand with an all sky cam or a moon/sun tracker would be cool, or a automated array of smaller scopes, like 9 s30 pros. that would be insane. lmao. honestly totally doable, somebody give me 5 grand.</p>
+<p>pss. Also, don’t buy a unisteller telescope. You are welcome!</p>
+</article>
+<article class="essay" id="essay-magic-is-real">
+<h3>Magic is real.</h3>
+<p class="posted">First posted on <a href="https://medium.com/@noellebytes/magic-is-real-1569f8c706d4">Medium</a>, August 1, 2026.</p>
+<p class="caveat">This is an earlier writing and may not be entirely right.</p>
+<p>What the fuck are Imaginary Numbers?</p>
+<p>written by a person, pinky promise all mistakes are mine and bad grammer purposefull.</p>
+<p>I would consider myself a rational, grounded person. I don’t believe in superstitions, make no mistake, that’s not what this is. It is not a God of the gaps, this is not about the unknown.</p>
+<p>It is about the Unknownable.</p>
+<p>Some things, by there very natural connot be compressed into a simpler form for us to understand, and still be real and know. The result of a countable infinity of points whose interaction create true randomness, true uncertainty. Not because there isn’t some mechanical means for cause and effect, but because the cause is by its very nature Unknownable, or uncalculable, like pi; the universe’s state is an example of a countable infinity of Turing Halting problems. (the halting problems is the idea that there are functions or algorithms that cannot be determined whether or not they will stop or continue on and when they will do so. not that they are all truly infinite, it’s that we cannot determine if they are because they starte in a state that appears to be.)</p>
+<p>if I could take a snapshot of the exact state of the universe right now, and used a special machine to recreate it, clone it. how long would it take for those two realities to differ? Well I don’t need to do the math, because some quantum physicists who believe in multiple concurrent realities aready did the math, but I’m a human who’se to lazy to Google it, so go look it up if you need to know. the answer regardless is basically instantly, far faster than you could react.</p>
+<p>in order to measure something so great at its own precision is by its nature impossible. It isn’t infinite, but it appears to be at any scale we could measure, so science will always deal with chasing imaginary numbers.</p>
+<p>our first step from superstition was the allegory of Plato’s cave, where shadows represented the idea of a thing, is but a thing itself. And while we would call shadows rather mundane, but they were a clear example of something that exists due to the lack of something else. In its absence, it’s shadow. the shadow is the absence. it’s the function of loss of light that literally exists. you can see it. you can see a function, you can see an imaginary number.</p>
+<p>Imaginary numbers, our second step out from supernatural some would say, but I would disagree, they are a compromise. A way to define something undefinable, of knowing something unknownable by labeling it, by simplifying it, through symbolic representation. Genuine genius, and further proof calculus is actual black magic.</p>
+<p>modern Genai uses matrixes that compare the semantic relations of two words or ideas. This type of computation is very similar to how our brain processes information, and weirdly suited to solve this problem of measurement. I.e. you don’t need to know the real number if you pretend it’s every number. Further solved by calculus. you can just use a symbol to represent it, and approximate it, like pi. The real measurement holds little meaning, as it will be based off the scale you use, and no scale can weigh uncertainty. Is it not odd, that the perfect shape, the circle, has a curve some would say is wholly undefinable by “real” numbers.</p>
+<p>But I degress, imaginary numbers, social contracts, consciousness, intelligence, ideas, some may call these metaphysics, some may call them supernatural, but I’m convinced if being is what is, then magic is the shadows of it.</p>
+<p>Shadows of the waves of the water casted on the bottom of a pool, or shadows dancing on the wall of a cave.</p>
+<h4>In other words: Magic is real.</h4>
+<p>no matter what you call it.</p>
+<p>Congrats, you’re a wizard Harry✨</p>
+<p>ps I’m a trans person and I’m allow to make that joke.</p>
+<p>pss thank you for coming to my ted talk.</p>
+<p>pss if we are a shadow of a shadow, does that just make us light again? idk.</p>
+<p>psss or is everything a shadow?</p>
+<p>psssss so anybody wanna have a watch party for that rocket that’s gonna hit the moon?</p>
+</article>
+</div>
+</main>
+<footer>The Way of the Wills</footer>
+</div>
+<script>
+(function () {
+  var tabs = ["the-way", "how-it-works", "questions", "reading", "writings"];
+  function show() {
+    var id = location.hash.replace("#", "");
+    if (tabs.indexOf(id) === -1) id = tabs[0];
+    tabs.forEach(function (t) { document.getElementById("panel-" + t).hidden = (t !== id); });
+    document.querySelectorAll("nav a").forEach(function (a) {
+      if (a.getAttribute("data-tab") === id) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  document.querySelectorAll("nav a").forEach(function (a) {
+    a.addEventListener("click", function () { setTimeout(function () { window.scrollTo(0, 0); }, 0); });
+  });
+  document.querySelectorAll("[data-jump]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var el = document.getElementById(a.getAttribute("data-jump"));
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+  window.addEventListener("hashchange", show);
+  show();
+})();
+</script>
+</body>
+</html>
